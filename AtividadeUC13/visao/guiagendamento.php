@@ -4,6 +4,10 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../estilos/menunav.css">
+    <link rel="stylesheet" type="text/css" href="../estilos/index.css">
     <title>Barbearia - Adicionar Agendamento</title>
 </head>
 <header>
