@@ -53,5 +53,14 @@
         public static function escaparAspas($valor){
             return addslashes($valor);
         }//fecha o método
+
+        public static function validarFiltro($valor){
+            $exp = '/[a-zA-Záéíóúâêîôûãõàèìòùäëïöüç]{3,50}$/';
+            if(preg_match($exp,$valor)){
+                return true;
+            }else{
+                return false;
+            }//fecha o else
+        }//fecha o método
     }
 ?>

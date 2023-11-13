@@ -5,16 +5,14 @@ USE barbeiro;
 CREATE TABLE agenda (
 	idCliente bigint not null auto_increment,
 	nomeCliente varchar(50) not null,
-	data date not null,
-	hora time not null,
+	data_hora datetime not null,
 	tipoCorte varchar(15) not null,
-	preco decimal(5,2) not null,
 	primary key (idCliente)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=12;
 
-INSERT INTO agenda (idCliente, nomeCliente, data, hora, tipoCorte, preco) VALUES
-(null, 'Pedro', '2023-11-27', '11:00:00', 'Cabelo', '10,00'),
-(null, 'João', '2023-11-27', '12:00:00', 'Barba', '10,00'),
-(null, 'Patrick', '2023-11-27', '15:00:00', 'Bigode', '10,00'),
-(null, 'Fábio', '2023-11-28', '10:00:00', 'Completo', '25,00');
+INSERT INTO agenda (idCliente, nomeCliente, data_hora, tipoCorte) VALUES
+(null, 'Pedro', '2023-11-27 11:00:00', 'Cabelo'),
+(null, 'João', '2023-11-27 12:00:00', 'Barba'),
+(null, 'Patrick', '2023-11-27 15:00:00', 'Ambos'),
+(null, 'Fábio', '2023-11-28 10:00:00', 'Ambos');
 

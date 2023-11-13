@@ -25,15 +25,15 @@
         <p>Cuide bem da sua aparência conosco</p>
     </header>
     <section class="featured-products">
-        <h2>Produtos em Destaque</h2>
+        <h2>Cortes</h2>
         <div class="product">
             <img src="img/trilha.jpg" alt="Bicicleta 1">
-            <h3>Bicicleta de Montanha</h3>
+            <h3>Cabelo</h3>
             <p>Perfeita para trilhas e aventuras na natureza.</p>
         </div>
         <div class="product">
             <img src="img/colli bike.jpg" alt="Bicicleta 2">
-            <h3>Bicicleta de Estrada</h3>
+            <h3>Barba</h3>
             <p>Ideal para ciclistas que amam o asfalto.</p>
         </div>
         <section class="testimonials">
@@ -46,7 +46,7 @@
             <div class="testimonial">
                 <img src="img/cliente 3.jpg" alt="Foto do Cliente 2">
                 <p>"Adoro minha nova bicicleta de estrada da Loja de Bikes. É leve e rápida, e o processo de compra foi muito fácil. Obrigado!"</p>
-                <p><strong>Maria Santos</strong></p>
+                <p><strong>Carlos Santos</strong></p>
             </div>
         </section>
         

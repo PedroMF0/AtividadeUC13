@@ -25,14 +25,22 @@
         <p>Cuide bem da sua aparência conosco</p>
     </header>
     
-<h2 class="title">Exclusão de Cliente</h2>
-<form action="../controle/usuariocontrole.php?op=deletar" method="post" name="exc" id="exc">
-    <fieldset><legend>Excluir</legend>
-        <label>Digite o código:
-            <input type="text" name="idCliente" id="idCliente">*
-        </label><br>
+<h2 class="title">Busca Avançada</h2>
+<form action="../controle/agendacontrole.php?op=buscarcliente" method="post" name="cadu">
+    <fieldset>
+        <legend>Busca Avançada</legend>
+        <input type="text" name="txtfiltro" id="txtfiltro" placeholder="Digite a busca">
 
-        <input type="submit" name="btnexcluir" id="btnexcluir" value="Excluir">
+        <label><input type="radio" name="rdfiltro" id="idusuario" value="idCliente" checked="checked">Código</label>
+        <br>
+        <label><input type="radio" name="rdfiltro" id="nomecliente" value="nomeCliente">Nome</label>
+        <br>
+        <label><input type="radio" name="rdfiltro" id="partesnome" value="partesnome">Partes do Nome</label>
+        <br>
+        <label><input type="radio" name="rdfiltro" id="tipo" value="tipo">Tipo</label>
+        <br>
+
+        <input type="submit" name="btnbuscar" id="btnbuscar" value="Buscar">
     </fieldset>
 
 </form>

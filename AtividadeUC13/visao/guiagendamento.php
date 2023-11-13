@@ -6,7 +6,7 @@ session_start();
 <head>
     <title>Barbearia - Adicionar Agendamento</title>
 </head>
-header>
+<header>
     <nav id="navMenu">
         <ul>
             <li><a href="../index.php">Página Inicial</a></li>
@@ -18,28 +18,21 @@ header>
     <h1>Adicionar Agendamento</h1>
     
     <form action="" method="post">
-        <label for="nomecliente">Nome:</label>
-        <input type="text" name="nome" id="nome" required>
-        <br><br>
-        
-        <label for="data">Data:</label>
-        <input type="date" name="data" id="data" required>
-        <br><br>
-        
-        <label for="hora">Hora:</label>
-        <input type="time" name="hora" id="hora" required>
-        <br><br>
+            <label for="nome">Nome:</label>
+            <input type="text" name="txtnome" id="txtnome" required>
+            
+            <label for="data_hora">Data e Hora:</label>
+            <input type="datetime-local" name="data_hora" id="data_hora" required>
 
-        <label>Tipo de Corte:</label>
-            <select name="tipocorte" id="tipocorte">
-                <option value="Cabelo">Cabelo</option>
-                <option value="Barba">Barba</option>
-                <option value="Completo">Completo</option>
+            <label for="tipo_corte">Tipo de Corte:</label>
+            <select name="tipo_corte" id="tipo_corte" required>
+                <option value="cabelo">Cabelo</option>
+                <option value="barba">Barba</option>
+                <option value="ambos">Ambos</option>
             </select>
-            <br><br>
-        
-        <input type="submit" value="Salvar">
-        <input type="reset" value="Limpar">
+
+            <button type="submit">Agendar</button>
+            <button type="reset">Limpar</button>
     </form>
 </body>
 </html>

@@ -3,8 +3,7 @@
         //Atributos
         private $idCliente;
         private $nomeCliente;
-        private $data;
-        private $hora;
+        private $data_hora;
         private $tipoCorte;
 
         //Construtor
@@ -28,8 +27,7 @@
         public function __toString(){
             return '<br>Código: '.$this->idCliente. 
                    '<br>Nome: '.$this->nomeCliente. 
-                   '<br>Data: '.$this->hora.
-                   '<br>Hora: '.$this->data.
+                   '<br>Data e Hora: '.$this->data_hora.
                    '<br>Tipo de Corte: '.$this->tipoCorte; 
         }
     }//fecha a classe Usuario
