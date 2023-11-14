@@ -10,35 +10,17 @@
             }//fecha o else
         }//fecha o método
     
-        public static function testarPreco($valor){
-            $exp='/[0-9,.]{3,10}$/u';
-            if(preg_match($exp,$valor) ){
+        public static function testarDatetimeLocal($valor){
+            $exp = '/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/';
+            if(preg_match($exp, $valor)){
                 return true;
-            }else{
+            } else {
                 return false;
-            }//fecha o else
-        }//fecha o método
-    
-        public static function testarData($valor){
-            $exp='/^\d{4}-\d{2}-\d{2}$/';
-            if(preg_match($exp,$valor) ){
-                return true;
-            }else{
-                return false;
-            }//fecha o else
+            }
         }
 
-        public static function testarHora($valor){
-            $exp='/^\d{2}:\d{2}$/';
-            if(preg_match($exp,$valor) ){
-                return true;
-            }else{
-                return false;
-            }//fecha o else
-        }//fecha o método
-
         public static function testarTipoCorte($valor){
-            $exp='/^(Cabelo|Barba|Completo)$/';
+            $exp='/^(cabelo|barba|ambos)$/';
             if(preg_match($exp,$valor) ){
                 return true;
             }else{
@@ -62,5 +44,24 @@
                 return false;
             }//fecha o else
         }//fecha o método
+
+        public static function testarLogin($valor){
+            $exp='/[a-zA-Záéíóúâêîôûãõàèìòùäëïöüç]{3,50}$/';
+            if(preg_match($exp,$valor) ){
+                return true;
+            }else{
+                return false;
+            }//fecha o else
+        }//fecha o método
+
+        public static function testarSenha($valor){
+            $exp='/^[0-9]{6,12}$/';
+            if(preg_match($exp,$valor) ){
+                return true;
+            }else{
+                return false;
+            }//fecha o else
+        }//fecha o método
+    
     }
 ?>

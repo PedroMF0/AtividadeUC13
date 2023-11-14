@@ -36,6 +36,38 @@
     </fieldset>
 
 </form>
+
+<div id="sidebar">
+		<?php
+				if(!isset($_SESSION['privateUser']) ){
+			?>
+				<form name="login" id="login" method="post" action="../controle/usuariocontrole.php?op=logar">
+						<input type="text" name="txtlogin" id="txtlogin" placeholder="login">
+						<br>
+						<input type="password" name="txtsenha" id="txtsenha" placeholder="senha">
+						<br>
+
+						<input type="submit" name="btnlogar" id="btnlogar" value="Logar">
+				</form>
+			<?php
+				}else{
+			?>
+						<ul>
+							<li>
+								<h2>Links Privado</h2>
+								<ul>
+									<li><a href="../controle/agendacontrole.php?op=consultarcliente">Consultar</a></li>
+									<li><a href="../controle/agendacontrole.php?op=deletar">Excluir</a></li>
+									<li><a href="guibuscliente.php">Busca Avançada</a></li>
+									<li><a href="../controle/agendacontrole.php?op=deslogar">Deslogar</a></li>
+									<li><a href="guialterarcliente.php">Alterar</a></li>
+								</ul>
+							</li>
+						</ul>
+			<?php
+				}//fim do else
+			?>
+		</div>
     
     <footer>
         <p>&copy; Barbearia 2023 by Pedro Morales</p>

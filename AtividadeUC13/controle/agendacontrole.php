@@ -3,9 +3,12 @@ session_start();
 
 include_once '../modelo/agenda.class.php';
 include_once '../util/validacao.class.php';
-include_once '../dao/agendadao.class.php.';
+include_once '../dao/agendadao.class.php';
+include_once '../util/controlelogin.class.php';
+include_once '../dao/funcdao.class.php';
+include_once '../modelo/funcionario.class.php';
 
-if( issse($_GET['op']) ){
+if( isset($_GET['op']) ){
     switch($_GET['op']){
 
         case 'marcarhora':
@@ -20,12 +23,8 @@ if( issse($_GET['op']) ){
                         $erros[] = 'Nome inválido!';
                     }
     
-                    if(!Validacao::testarData($_POST['data_hora']) ){
+                    if(!Validacao::testarDatetimeLocal($_POST['data_hora']) ){
                         $erros[] = 'Data inválida!';
-                    }
-
-                    if(!Validacao::testarHora($_POST['data_hora']) ){
-                        $erros[] = 'Hora inválida!';
                     }
     
                     if(!Validacao::testarTipoCorte($_POST['tipo_corte']) ){
@@ -35,8 +34,7 @@ if( issse($_GET['op']) ){
                     if( count($erros) == 0){
                         $a = new Agenda();
                         $a->nomeCliente = $_POST['txtnome'];
-                        $a->data = $_POST['data_hora'];
-                        $a->hora = $_POST['data_hora'];
+                        $a->data_hora = $_POST['data_hora'];
                         $a->tipoCorte = $_POST['tipo_corte'];
     
                         /*Enviar o objeto $u para o banco de dados */
@@ -149,12 +147,8 @@ if( issse($_GET['op']) ){
                 $erros[] = 'Nome inválido!';
             }
 
-            if(!Validacao::testarData($_POST['data_hora']) ){
+            if(!Validacao::testarDatetimeLocal($_POST['data_hora']) ){
                 $erros[] = 'Data inválida!';
-            }
-
-            if(!Validacao::testarHora($_POST['data_hora']) ){
-                $erros[] = 'Hora inválida!';
             }
 
             if(!Validacao::testarTipoCorte($_POST['tipo_corte']) ){
@@ -182,7 +176,84 @@ if( issse($_GET['op']) ){
         }
         break;
 
-        default 'Erro no switch!';
+        case 'logar':
+            if( isset($_POST['txtlogin']) &&
+                isset($_POST['txtsenha'])){
+                $cont = 0;
+
+                if(!Validacao::testarLogin($_POST['txtlogin'])){
+                    $cont++;
+                }
+
+                if(!Validacao::testarSenha($_POST['txtsenha'])){
+                    $cont++;
+                }
+
+                if($cont == 0){
+                    $nomeBarbeiro = Validacao::retirarEspacos($_POST['txtlogin']);
+                    $nomeBarbeiro = Validacao::escaparAspas($nomeBarbeiro);
+
+                    $senha = Validacao::retirarEspacos($_POST['txtsenha']);
+                    $senha = Validacao::escaparAspas($senha);
+
+                    $barbeiro = new Barbeiro();
+
+                    
+                    $barbeiro->nomeBarbeiro = $nomeBarbeiro;
+                    $barbeiro->senha = $senha;
+                    ControleLogin::logar($barbeiro);
+                }else{
+                    $_SESSION['msg'] = 'Login/Senha inválidos!';
+                    header('location:../visao/guiresposta.php');
+                }
+
+            }else{
+                echo'Não existe txtlogin e/ou txtsenha!!';
+            }
+        break;
+
+        case 'deslogar':
+            ControleLogin::deslogar();
+        break;
+
+        case 'cadastrar':
+            if( isset($_POST['txtlogin']) &&
+            isset($_POST['txtsenha']) ) {
+
+                //fazendo a validação
+                $erros = array();
+
+                if(!Validacao::testarLogin($_POST['txtlogin']) ){
+                    $erros[] = 'Login inválido!';
+                }
+
+                if(!Validacao::testarSenha($_POST['txtsenha']) ){
+                    $erros[] = 'Senha inválida!';
+                }
+
+                if( count($erros) == 0){
+                    $barbeiro = new Barbeiro();
+                    $barbeiro->nomeBarbeiro = $_POST['txtlogin'];
+                    $barbeiro->senha = $_POST['txtsenha'];
+
+                    /*Enviar o objeto $u para o banco de dados */
+                    $fDAO = new FuncionarioDAO();
+                    $fDAO->cadastrarBarbeiro($barb);
+
+                    $_SESSION['barbeiros']=serialize($b);
+                    $_SESSION['msg'] = 'O barbeiro '.$b->nomeBarbeiro.' foi cadastrado com sucesso!';
+
+                    header("location:../visao/guiresposta.php");
+                }else{
+                    $e = serialize($erros);
+                    header("location:../visao/guierro.php?erros=$e");
+                }//fecha o if do count
+          }else{
+             echo 'Variaveis inválidas!';
+          }//fecha o isset
+        break;
+
+        default: 'Erro no switch!';
         break;
 
     }//fecha o switch

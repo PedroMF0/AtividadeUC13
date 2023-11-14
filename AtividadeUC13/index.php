@@ -15,6 +15,7 @@
         <ul>
             <li><a href="index.php">Página Inicial</a></li>
             <li><a href="visao/guiagendamento.php">Marque seu Horário</a></li>
+            <li><a href="visao/guicadfuncionario.php">Funcionário</a></li>
         </ul>
     </nav>
 </header>
@@ -51,8 +52,66 @@
         </section>
         
     </section>
-    <footer>
-        <p>&copy; Barbearia 2023 by Pedro Morales</p>
-    </footer>
+
+<h2 class="title">Pagina Inicial</h2>
+
+<?php
+	if(isset($_SESSION['privateUser']) ){
+		include_once 'modelo/funcionario.class.php';
+		$func = new Barbeiro();
+		$func = unserialize($_SESSION['privateUser']);
+
+		echo '<p>Olá, '.$func->nomeBarbeiro.'<br>'. 
+			 'Seja Bem-Vindo!</p>';
+	}
+	//fecha o if
+?>
+
+
+				<!-- InstanceEndEditable -->
+
+			</div>
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+			<?php
+				if(!isset($_SESSION['privateUser']) ){
+			?>
+				<form name="login" id="login" method="post" action="controle/agendacontrole.php?op=logar">
+						<input type="text" name="txtlogin" id="txtlogin" placeholder="login">
+						<br>
+						<input type="password" name="txtsenha" id="txtsenha" placeholder="senha">
+						<br>
+
+						<input type="submit" name="btnlogar" id="btnlogar" value="Logar">
+				</form>
+			<?php
+				}else{
+			?>
+						<ul>
+							<li>
+								<h2>Links Privado</h2>
+								<ul>
+									<li><a href="controle/agendacontrole.php?op=consultarcliente">Consultar</a></li>
+									<li><a href="visao/guidelcliente.php">Excluir</a></li>
+									<li><a href="visao/guibuscacliente.php">Busca Avançada</a></li>
+									<li><a href="controle/agendacontrole.php?op=deslogar">Deslogar</a></li>
+									<li><a href="visao/guialterarcliente.php">Alterar</a></li>
+								</ul>
+							</li>
+						</ul>
+			<?php
+				}//fim do else
+			?>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page --> 
+</div>
+<div id="footer">
+	<p>Copyright (c) 2012 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org">FCT</a>. Photos by <a href="http://fotogrph.com/">Fotogrph</a>.</p>
+</div>
+<!-- end #footer -->
 </body>
-</html>
+<!-- InstanceEnd --></html>

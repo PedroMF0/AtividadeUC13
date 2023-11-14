@@ -1,5 +1,5 @@
 <?php
-include '../persistencia/conexaobanco.class.php';
+include_once '../persistencia/conexaobanco.class.php';
 class AgendaDAO{
     private $conexao=null;
 
