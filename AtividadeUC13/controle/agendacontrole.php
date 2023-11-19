@@ -31,20 +31,20 @@ if( isset($_GET['op']) ){
                         $erros[] = 'Tipo inválido!';
                     }
     
-                    if( count($erros) == 0){
+                    if (count($erros) == 0) {
                         $a = new Agenda();
                         $a->nomeCliente = $_POST['txtnome'];
                         $a->data_hora = $_POST['data_hora'];
                         $a->tipoCorte = $_POST['tipo_corte'];
-    
-                        /*Enviar o objeto $u para o banco de dados */
+            
                         $aDAO = new AgendaDAO;
-                        $aDAO->marcarHorario($mh);
-    
-                        $_SESSION['agenda']=serialize($a);
+                        $aDAO->marcarHorario($a); // Correção: estava usando $mh ao invés de $a
+            
+                        $_SESSION['agenda'] = serialize($a);
                         $_SESSION['msg'] = 'O cliente '.$a->nomeCliente.' foi agendado com sucesso!';
-    
+            
                         header("location:../visao/guiresposta.php");
+                        exit();
                     }else{
                         $e = serialize($erros);
                         header("location:../visao/guierro.php?erros=$e");
@@ -58,7 +58,7 @@ if( isset($_GET['op']) ){
             $aDAO = new AgendaDAO();
 
             $array = array();
-            $array = $uDAO->buscarCliente();
+            $array = $aDAO->buscarCliente();
 
             $_SESSION['agenda'] = serialize($array);
             header("location:../visao/guiconsulta.php");
@@ -217,33 +217,30 @@ if( isset($_GET['op']) ){
         break;
 
         case 'cadastrar':
-            if( isset($_POST['txtlogin']) &&
-            isset($_POST['txtsenha']) ) {
-
-                //fazendo a validação
+            if (isset($_POST['txtlogin']) && isset($_POST['txtsenha'])) {
                 $erros = array();
-
-                if(!Validacao::testarLogin($_POST['txtlogin']) ){
+    
+                if (!Validacao::testarLogin($_POST['txtlogin'])) {
                     $erros[] = 'Login inválido!';
                 }
-
-                if(!Validacao::testarSenha($_POST['txtsenha']) ){
+    
+                if (!Validacao::testarSenha($_POST['txtsenha'])) {
                     $erros[] = 'Senha inválida!';
                 }
-
-                if( count($erros) == 0){
+    
+                if (count($erros) == 0) {
                     $barbeiro = new Barbeiro();
                     $barbeiro->nomeBarbeiro = $_POST['txtlogin'];
                     $barbeiro->senha = $_POST['txtsenha'];
-
-                    /*Enviar o objeto $u para o banco de dados */
+    
                     $fDAO = new FuncionarioDAO();
-                    $fDAO->cadastrarBarbeiro($barb);
-
-                    $_SESSION['barbeiros']=serialize($b);
-                    $_SESSION['msg'] = 'O barbeiro '.$b->nomeBarbeiro.' foi cadastrado com sucesso!';
-
+                    $fDAO->cadastrarBarbeiro($barbeiro); // Correção: usando $barbeiro ao invés de $barb
+    
+                    $_SESSION['barbeiros'] = serialize($barbeiro); // Correção: seria melhor usar $barbeiro ao invés de $b
+                    $_SESSION['msg'] = 'O barbeiro '.$barbeiro->nomeBarbeiro.' foi cadastrado com sucesso!';
+    
                     header("location:../visao/guiresposta.php");
+                    exit();
                 }else{
                     $e = serialize($erros);
                     header("location:../visao/guierro.php?erros=$e");

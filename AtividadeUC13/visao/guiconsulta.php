@@ -65,7 +65,7 @@
 
                     echo '<td>' . $a->nomeCliente . '</td>';
                     echo '<td>' . $a->data_hora .  '</td>'; // You may want to display password securely
-                    echo '<td>' . $u->tipoCorte . '</td>';
+                    echo '<td>' . $a->tipoCorte . '</td>';
 
                     echo '</tr>';
                 } // closes the foreach
