@@ -24,7 +24,7 @@ class AgendaDAO {
         try{
             $stat = $this->conexao->query("SELECT * FROM agenda");
 
-            $array = $stat->fetchAll(PDO::FETCH_CLASS, 'Agenda');
+            $array = $stat->fetchAll(PDO::FETCH_CLASS, 'agenda');
 
             return $array;
 

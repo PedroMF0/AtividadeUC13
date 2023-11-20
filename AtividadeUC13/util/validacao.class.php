@@ -37,7 +37,7 @@
         }//fecha o método
 
         public static function validarFiltro($valor){
-            $exp = '/[a-zA-Záéíóúâêîôûãõàèìòùäëïöüç]{3,50}$/';
+            $exp = '/[a-zA-Záéíóúâêîôûãõàèìòùäëïöüç]{1,50}$/';
             if(preg_match($exp,$valor)){
                 return true;
             }else{

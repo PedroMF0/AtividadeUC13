@@ -54,7 +54,7 @@ session_start();
 								<ul>
 									<li><a href="../controle/agendacontrole.php?op=consultarcliente">Consultar</a></li>
 									<li><a href="../controle/agendacontrole.php?op=deletar">Excluir</a></li>
-									<li><a href="guibuscliente.php">Busca Avançada</a></li>
+									<li><a href="guibuscacliente.php">Busca Avançada</a></li>
 									<li><a href="../controle/agendacontrole.php?op=deslogar">Deslogar</a></li>
 									<li><a href="guialterarcliente.php">Alterar</a></li>
 								</ul>

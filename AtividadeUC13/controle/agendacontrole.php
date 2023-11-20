@@ -80,9 +80,9 @@ if( isset($_GET['op']) ){
                         if ($_POST['rdfiltro'] == 'idCliente') {
                             $query = "where idCliente = " . $_POST['txtfiltro'];
                         } else if ($_POST['rdfiltro'] == 'nomeCliente') {
-                            $query = "where nome = \"" . $_POST['txtfiltro'] . "\"";
-                        } else if ($_POST['rdfiltro'] == 'partesnome') {
-                            $query = "where nome like '%" . $_POST['txtfiltro'] . "%'";
+                            $query = "where nomeCliente = \"" . $_POST['txtfiltro'] . "\"";
+                        }  else if ($_POST['rdfiltro'] == 'partesnome') {
+                            $query = "where nomeCliente like '%" . $_POST['txtfiltro'] . "%'";
                         } else {
                             $query = "where tipoCorte = \"" . $_POST['txtfiltro'] . "\"";
                         }
@@ -91,10 +91,10 @@ if( isset($_GET['op']) ){
                     $agenda = $aDAO->buscar($query);
 
                     $_SESSION['agenda']=serialize($agenda);
-                    header('location:../visao/guiconsulta.php');
+                    header("location:../visao/guiconsulta.php");
                 }else{
                     $_SESSION['erros'] = serialize($erros);
-                    header('location:../visao/guierro.php');
+                    header("location:../visao/guierro.php");
                 }
                 }else{
                     echo 'Variáveis não existem!';
@@ -107,7 +107,7 @@ if( isset($_GET['op']) ){
                 $aDAO = new AgendaDAO();
                 $aDAO->deletarCliente($_REQUEST['idCliente']);
 
-                header('location:../controle/agendacontrole.php?op=consultar');
+                header("location:../controle/agendacontrole.php?op=consultarcliente");
             }else{
                 echo'idCliente não existe';
             }
@@ -165,7 +165,7 @@ if( isset($_GET['op']) ){
                 $aDAO = new AgendaDAO();
                 $aDAO->alterarCliente($a);
                 $_SESSION['a'] = serialize($a);
-                header('location:../controle/agendacontrole.php?op=consultar');
+                header('location:../controle/agendacontrole.php?op=consultarcliente');
             }else{
                 $_SESSION['erros'] = serialize($erros);
                 header('location:../visao/guierro.php');

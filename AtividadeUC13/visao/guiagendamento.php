@@ -15,6 +15,7 @@ session_start();
         <ul>
             <li><a href="../index.php">Página Inicial</a></li>
             <li><a href="guiagendamento.php">Marque seu Horário</a></li>
+            <li><a href="guicadfuncionario.php">Funcionário</a></li>
         </ul>
     </nav>
 </header>
@@ -43,7 +44,7 @@ session_start();
 		<?php
 				if(!isset($_SESSION['privateUser']) ){
 			?>
-				<form name="login" id="login" method="post" action="../controle/usuariocontrole.php?op=logar">
+				<form name="login" id="login" method="post" action="../controle/agendacontrole.php?op=logar">
 						<input type="text" name="txtlogin" id="txtlogin" placeholder="login">
 						<br>
 						<input type="password" name="txtsenha" id="txtsenha" placeholder="senha">
@@ -60,7 +61,7 @@ session_start();
 								<ul>
 									<li><a href="../controle/agendacontrole.php?op=consultarcliente">Consultar</a></li>
 									<li><a href="../controle/agendacontrole.php?op=deletar">Excluir</a></li>
-									<li><a href="guibuscliente.php">Busca Avançada</a></li>
+									<li><a href="guibuscacliente.php">Busca Avançada</a></li>
 									<li><a href="../controle/agendacontrole.php?op=deslogar">Deslogar</a></li>
 									<li><a href="guialterarcliente.php">Alterar</a></li>
 								</ul>
