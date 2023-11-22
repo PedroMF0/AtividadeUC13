@@ -6,8 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../estilos/menunav.css">
-    <link rel="stylesheet" type="text/css" href="../estilos/index.css">
+    <link rel="stylesheet" type="text/css" href="estilos/menunav.css">
+    <link rel="stylesheet" type="text/css" href="estilos/index.css">
     <title>Barbearia</title>
 </head>
 <header>
@@ -109,9 +109,9 @@
 	</div>
 	<!-- end #page --> 
 </div>
-<div id="footer">
-	<p>Copyright (c) 2012 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org">FCT</a>. Photos by <a href="http://fotogrph.com/">Fotogrph</a>.</p>
-</div>
+	<footer>
+        <p>&copy; Barbearia 2023 by Pedro Morales</p>
+    </footer>
 <!-- end #footer -->
 </body>
 <!-- InstanceEnd --></html>

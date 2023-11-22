@@ -7,7 +7,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../estilos/menunav.css">
-    <link rel="stylesheet" type="text/css" href="../estilos/index.css">
+    <link rel="stylesheet" type="text/css" href="../estilos/agendamento.css">
     <title>Barbearia - Adicionar Agendamento</title>
 </head>
 <header>
