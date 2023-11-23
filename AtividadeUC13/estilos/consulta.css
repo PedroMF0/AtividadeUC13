@@ -1,5 +1,6 @@
 /* Reset CSS para limpar margens e preenchimentos padrão */
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
 }
@@ -41,46 +42,46 @@ body {
     padding: 0;
 }
 
-h1 {
+.title {
     text-align: center;
 }
 
-form {
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="datetime-local"],
-select {
-    width: calc(100% - 22px);
-    padding: 8px;
+table caption {
+    font-weight: bold;
     margin-bottom: 10px;
-    box-sizing: border-box;
 }
 
-button {
-    padding: 10px 20px;
+table th,
+table td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
     background-color: #333;
     color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #555;
+table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
-/* Estilos para a sidebar */
+table tfoot {
+    background-color: #333;
+    color: white;
+}
+
+/* Estilos para a barra lateral */
 #sidebar {
-    background-color: #f4f4f4;
+    background-color: #333;
+    color: white;
     padding: 20px;
     margin-top: 20px;
 }
@@ -104,23 +105,36 @@ button:hover {
     margin-bottom: 10px;
 }
 
-#sidebar ul li a {
+#sidebar ul li h2 {
+    margin-bottom: 5px;
+    color: #ffcc00;
+    font-size: 18px;
+    border-bottom: 1px solid #ffcc00;
+    padding-bottom: 5px;
+}
+
+#sidebar ul li ul {
+    padding-left: 15px;
+}
+
+#sidebar ul li ul li {
+    margin-bottom: 5px;
+}
+
+#sidebar ul li ul li a {
     text-decoration: none;
-    color: #333;
+    color: white;
     transition: color 0.3s;
 }
 
-#sidebar ul li a:hover {
-    color: #555;
+#sidebar ul li ul li a:hover {
+    color: #ffcc00;
 }
 
-/* Estilos para o footer */
 footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 10px 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    margin-top: 10px;
 }

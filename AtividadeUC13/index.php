@@ -15,7 +15,7 @@
         <ul>
             <li><a href="index.php">Página Inicial</a></li>
             <li><a href="visao/guiagendamento.php">Marque seu Horário</a></li>
-            <li><a href="visao/guicadfuncionario.php">Funcionário</a></li>
+            <li><a href="visao/guifuncionario.php">Funcionário</a></li>
         </ul>
     </nav>
 </header>
@@ -97,6 +97,7 @@
 									<li><a href="visao/guibuscacliente.php">Busca Avançada</a></li>
 									<li><a href="controle/agendacontrole.php?op=deslogar">Deslogar</a></li>
 									<li><a href="visao/guialterarcliente.php">Alterar</a></li>
+									<li><a href="visao/guicadfuncionario.php">Cadastro de Funcionário</a></li>
 								</ul>
 							</li>
 						</ul>

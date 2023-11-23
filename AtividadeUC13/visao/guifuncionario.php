@@ -7,7 +7,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../estilos/menunav.css">
-    <link rel="stylesheet" type="text/css" href="../estilos/cadfuncionario.css">
+    <link rel="stylesheet" type="text/css" href="../estilos/funcionario.css">
     <title>Barbearia - Adicionar Agendamento</title>
 </head>
 <header>
@@ -20,20 +20,9 @@ session_start();
     </nav>
 </header>
 <body>
-    <h1>Adicionar Funcionário</h1>
-    
-    <form action="../controle/agendacontrole.php?op=cadastrar" method="post">
-            <label for="nome">Nome:</label>
-            <input type="text" name="txtlogin" id="txtlogin" required>
-            
-            <label for="senha">Senha:</label>
-            <input type="text" name="txtsenha" id="txtsenha" required>
+    <h1>Login de Funcionário</h1>
 
-            <button type="submit">Cadastro</button>
-            <button type="reset">Limpar</button>
-    </form>
-
-    <div id="sidebar">
+    <div id="sidebar" class="<?php echo isset($_SESSION['privateUser']) ? 'logged-in' : ''; ?>">
 		<?php
 				if(!isset($_SESSION['privateUser']) ){
 			?>
