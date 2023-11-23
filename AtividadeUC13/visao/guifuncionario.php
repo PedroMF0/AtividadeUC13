@@ -27,12 +27,14 @@ session_start();
 				if(!isset($_SESSION['privateUser']) ){
 			?>
 				<form name="login" id="login" method="post" action="../controle/agendacontrole.php?op=logar">
-						<input type="text" name="txtlogin" id="txtlogin" placeholder="login">
-						<br>
-						<input type="password" name="txtsenha" id="txtsenha" placeholder="senha">
-						<br>
+				<label for="nome">Nome:</label>
+				<input type="text" name="txtlogin" id="txtlogin" required>
+				
+				<label for="senha">Senha:</label>
+				<input type="password" name="txtsenha" id="txtsenha" required>
 
-						<input type="submit" name="btnlogar" id="btnlogar" value="Logar">
+				<button type="submit">Logar</button>
+				<button type="reset">Limpar</button>
 				</form>
 			<?php
 				}else{
