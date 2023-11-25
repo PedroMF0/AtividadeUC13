@@ -53,6 +53,7 @@
         
     </section>
 
+    
 		<!-- end #sidebar -->
 		<div style="clear: both;">&nbsp;</div>
 	</div>

@@ -28,7 +28,7 @@
         <legend>Busca Avançada</legend>
         <input type="text" name="txtfiltro" id="txtfiltro" placeholder="Digite a busca">
 
-        <label><input type="radio" name="rdfiltro" id="idusuario" value="idCliente" checked="checked">Código</label>
+        <label><input type="radio" name="rdfiltro" id="idcliente" value="idCliente" checked="checked">Código</label>
         <br>
         <label><input type="radio" name="rdfiltro" id="nomecliente" value="nomeCliente">Nome</label>
         <br>

@@ -120,7 +120,7 @@ if( isset($_GET['op']) ){
 
                 $aDAO = new AgendaDAO();
                 $agendas = array();
-                $agendas = $uDAO->buscar($query);
+                $agendas = $aDAO->buscar($query);
 
                 $_SESSION['agenda'] = serialize($agendas);
                 header('location:../visao/guialterar.php');
@@ -157,14 +157,14 @@ if( isset($_GET['op']) ){
 
             if( count($erros) == 0){
                 $a = new Agenda();
+                $a->idCliente = $_POST['txtidcliente'];
                 $a->nomeCliente = $_POST['txtnome'];
-                $a->data = $_POST['data_hora'];
-                $a->hora = $_POST['data_hora'];
+                $a->data_hora = $_POST['data_hora'];
                 $a->tipoCorte = $_POST['tipo_corte'];
 
                 $aDAO = new AgendaDAO();
                 $aDAO->alterarCliente($a);
-                $_SESSION['a'] = serialize($a);
+                $_SESSION['agenda'] = serialize($a);
                 header('location:../controle/agendacontrole.php?op=consultarcliente');
             }else{
                 $_SESSION['erros'] = serialize($erros);
