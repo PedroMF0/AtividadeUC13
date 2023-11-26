@@ -16,6 +16,7 @@
             <li><a href="../index.php">Página Inicial</a></li>
             <li><a href="guiagendamento.php">Marque seu Horário</a></li>
             <li><a href="guifuncionario.php">Funcionário</a></li>
+            <li><a href="../index2.php">Baixar PDF</a></li>
         </ul>
     </nav>
 </header>
@@ -27,7 +28,7 @@
 <p>
     <?php
     if (isset($_SESSION['agenda']) && !is_null($_SESSION['agenda'])) {
-        // Instantiate an object $usu as a Usuario
+        
         include_once '../modelo/agenda.class.php';
         $age = array();
         $age = unserialize($_SESSION['agenda']);
@@ -61,7 +62,7 @@
                     <a href='../controle/agendacontrole.php'> $a->idCliente </a> </td>";
 
                     echo '<td>' . $a->nomeCliente . '</td>';
-                    echo '<td>' . $a->data_hora .  '</td>'; // You may want to display password securely
+                    echo '<td>' . $a->data_hora .  '</td>'; 
                     echo '<td>' . $a->tipoCorte . '</td>';
 
                     echo '</tr>';

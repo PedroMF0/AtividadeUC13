@@ -16,6 +16,7 @@
             <li><a href="../index.php">Página Inicial</a></li>
             <li><a href="guiagendamento.php">Marque seu Horário</a></li>
             <li><a href="guifuncionario.php">Funcionário</a></li>
+            <li><a href="../index2.php">Baixar PDF</a></li>
         </ul>
     </nav>
 </header>

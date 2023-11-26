@@ -16,6 +16,7 @@
             <li><a href="index.php">Página Inicial</a></li>
             <li><a href="visao/guiagendamento.php">Marque seu Horário</a></li>
             <li><a href="visao/guifuncionario.php">Funcionário</a></li>
+            <li><a href="index2.php">Baixar PDF</a></li>
         </ul>
     </nav>
 </header>
@@ -52,7 +53,6 @@
         </section>
         
     </section>
-
     
 		<!-- end #sidebar -->
 		<div style="clear: both;">&nbsp;</div>
