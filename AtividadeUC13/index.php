@@ -27,7 +27,7 @@
         <p>Cuide bem da sua aparência conosco</p>
     </header>
     <section class="featured-products">
-        <h2>Cortes</h2>
+       
         <div class="product">
             <img src="img/cabelo.jpg" alt="cabelo 1">
             <h3>Cabelo</h3>

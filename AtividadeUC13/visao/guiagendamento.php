@@ -24,22 +24,38 @@ session_start();
     <h1>Adicionar Agendamento</h1>
     
     <form action="../controle/agendacontrole.php?op=marcarhora" method="post">
-            <label for="nome">Nome:</label>
-            <input type="text" name="txtnome" id="txtnome" required>
-            
-            <label for="data_hora">Data e Hora:</label>
-            <input type="datetime-local" name="data_hora" id="data_hora" required>
+    <label for="nome">Nome:</label>
+    <input type="text" name="txtnome" id="txtnome" required>
+    
+    <label for="data_hora">Data e Hora:</label>
+    <input type="datetime-local" name="data_hora" id="data_hora" required>
 
-            <label for="tipo_corte">Tipo de Corte:</label>
-            <select name="tipo_corte" id="tipo_corte" required>
-                <option value="cabelo">Cabelo</option>
-                <option value="barba">Barba</option>
-                <option value="ambos">Ambos</option>
-            </select>
+    <label for="tipo_corte">Tipo de Corte:</label>
+    <select name="tipo_corte" id="tipo_corte" required>
+        <option value="cabelo">Cabelo</option>
+        <option value="barba">Barba</option>
+        <option value="ambos">Ambos</option>
+    </select>
 
-            <button type="submit">Agendar</button>
-            <button type="reset">Limpar</button>
-    </form>
+    <button type="submit">Agendar</button>
+    <button type="reset">Limpar</button>
+
+    <script>
+        const dataHoraInput = document.getElementById('data_hora');
+        const dataAtual = new Date();
+        
+        // Convertendo a data atual para o formato de datetime-local
+        const ano = dataAtual.getFullYear();
+        const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
+        const dia = String(dataAtual.getDate()).padStart(2, '0');
+        const hora = String(dataAtual.getHours()).padStart(2, '0');
+        const minutos = String(dataAtual.getMinutes()).padStart(2, '0');
+        
+        const dataHoraMinima = `${ano}-${mes}-${dia}T${hora}:${minutos}`;
+
+        dataHoraInput.setAttribute('min', dataHoraMinima);
+    </script>
+</form>
 
     
      <footer>

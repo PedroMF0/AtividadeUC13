@@ -65,6 +65,21 @@
 		<input type="submit" name="btnalterar" id="btnalterar" value="Alterar">
 		<input type="reset" name="btnlimpar" id="btnlimpar" value="Limpar">
     </fieldset>
+	<script>
+        const dataHoraInput = document.getElementById('data_hora');
+        const dataAtual = new Date();
+        
+        // Convertendo a data atual para o formato de datetime-local
+        const ano = dataAtual.getFullYear();
+        const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
+        const dia = String(dataAtual.getDate()).padStart(2, '0');
+        const hora = String(dataAtual.getHours()).padStart(2, '0');
+        const minutos = String(dataAtual.getMinutes()).padStart(2, '0');
+        
+        const dataHoraMinima = `${ano}-${mes}-${dia}T${hora}:${minutos}`;
+
+        dataHoraInput.setAttribute('min', dataHoraMinima);
+    </script>
 </form>
 
     <div id="sidebar">
